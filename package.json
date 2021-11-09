@@ -1,0 +1,25 @@
+{
+  "name": "lab-simetrico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mclovin-felipe/Lab-simetrico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mclovin-felipe/Lab-simetrico/issues"
+  },
+  "homepage": "https://github.com/mclovin-felipe/Lab-simetrico#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14"
+  }
+}
