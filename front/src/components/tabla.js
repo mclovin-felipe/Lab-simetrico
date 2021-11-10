@@ -7,7 +7,7 @@ const Tabla = (props) => {
         
         <div className="container">
             <table className="u-full-width">
-                <thead>
+                <thead className="u-mid-width">
                     <tr>
                     <th>Pass</th>
                     <th>IP</th>
