@@ -1,6 +1,7 @@
 import './App.css';
 import './Normalize.css';
 import Tabla from './components/tabla';
+import Pdf from './components/pdf.js';
 function App() {
   const datos = {
     pass:"tyafsjdykglukahj",
@@ -16,6 +17,7 @@ function App() {
     <div>
       <Tabla datos ={datos}/>
       <Tabla datos = {datos2}/>
+	  <Pdf />
       </div>
       
   );
