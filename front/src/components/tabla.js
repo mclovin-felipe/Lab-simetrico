@@ -1,13 +1,14 @@
 import React from 'react';
-
+import './custom.css';
+import './normalize.css';
+import './skeleton.css';
 const Tabla = (props) => {
-    console.log(props.datos);
     const datos = props.datos
     return(
         
         <div className="container">
             <table className="u-full-width">
-                <thead className="u-mid-width">
+                <thead>
                     <tr>
                     <th>Pass</th>
                     <th>IP</th>
@@ -22,6 +23,7 @@ const Tabla = (props) => {
                     </tr>
                 </tbody>
 </table>
+	<br></br>
 </div>
     );
 }
