@@ -38,7 +38,7 @@ app.post ('/agregar', (req, res) =>{
     so:so}).then(data => {
     res.json('listo');}).catch(err => console.log(err))
 })
-app.get('/tipo_usuario', (req, res) =>{
+app.get('/datos', (req, res) =>{
     knex.select('*').from('cripto').then(data => {
         res.send(data)
         console.log(data)
