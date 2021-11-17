@@ -21,8 +21,10 @@
   "dependencies": {
     "@react-pdf-viewer/core": "^2.4.1",
     "@react-pdf-viewer/default-layout": "^2.11.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "firebase": "^9.4.1",
+    "mongoose": "^6.0.13",
     "nodemon": "^2.0.14",
     "pdfjs-dist": "^2.6.347"
   }
