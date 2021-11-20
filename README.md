@@ -6,6 +6,17 @@
 ## API
 La api se aloja en HEROKU, para probar esto realizamos una consulta con la app Postman.
 ![Alt text](./img/api.png?raw=true "Postman Probando API")
+### ENDPOINTS
+```
+/agregar
+```
+Recibe body en formato JSON, con los parametros: 
+pass, ip, so.
+
+```
+/datos
+```
+Devuelve un array con los datos.
 ## FRONT
 El front esta alojado en la plataforma de Netlify.
  ![Alt text](./img/net.png?raw=true "Netlify")
