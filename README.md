@@ -1,7 +1,7 @@
 # Lab-simetrico
 ## LINKS
-* [LAB SIMETRICO]('https://labsimetrico.netlify.app/') - PAGINA
-* [API]('https://labsimetrico.herokuapp.com/') - API  
+* [LAB SIMETRICO](https://labsimetrico.netlify.app/) - PAGINA
+* [API](https://labsimetrico.herokuapp.com/) - API  
 
 ## API
 La api se aloja en HEROKU, para probar esto realizamos una consulta con la app Postman.
