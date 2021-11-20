@@ -27,7 +27,16 @@
 
 
 /* Grid
+
+
+
+
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+body {
+ background-color: #bbbbbb;
+}
+
+
 .container {
   position: relative;
   width: 100%;

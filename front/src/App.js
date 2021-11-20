@@ -1,54 +1,70 @@
 import './App.css';
 import './Normalize.css';
-import Tabla from './components/tabla';
-function App() {
-const add = (palabra) => {
-                if(palabra.length < 30){
-                        let faltante = 30-palabra.length;
-                        let mu = " ";
-                        mu = palabra+mu.repeat(faltante);
-                        return mu;
+import Formm from './components/tabla';
+import axios from 'axios';
+import React from 'react';
 
+class App extends React.Component {
+  constructor(props){
+  super(props);
+  this.state = {
+    datos : []
 
-                }
-                else{
-                return palabra;
-                }
-
-        }
-  let datos = {
-    pass:"tyafsjdykglukahj",
-    ip:"192.168.0.1",
-    so:"Linux Fedora"
+  };
+  };
+  componentDidMount(){
+  axios.get('https://labsimetrico.herokuapp.com/datos').then(res => {
+  const datos = res.data;
+  this.setState({
+  datos: datos
+  })
+  }).catch(error => console.log(error));
   }
-  let datos2 = {
-    pass:"tyafsjdykglukahj",
-    ip:"192.168.0.1",
-    so:"Linux Fedoraashjdvhasbn"
-  }
-for (let item in datos){
-        let largo = 0;
-           largo = datos[item];
-           console.log(largo);
-           datos[item]= add(datos[item]);
-           console.log(datos[item].length);
+  render(){
 
-    }
-for (let item in datos){
-        let largo = 0;
-          largo = datos2[item];
-          console.log(largo);
-          datos2[item]= add(datos2[item]);
-          console.log(datos2[item].length);
+    const stylee = {
 
-    }
+      backgroundColor: "#E0E0E0",
+      borderRadius: "40px",
+
+    };
   return (
-    <div>
-      <Tabla datos ={datos}/>
-      <Tabla datos = {datos2}/>
+    <div className = "center">
+    <center>
+    <h2>Lab Cifrado simetrico</h2>
+    <div className= 'container' style = {stylee}>
+    <center>
+    <div style = {{margin: "auto",
+        padding: "10px"}}>
+
+    <table className = "u-full-width">
+                <thead>
+                    <tr>
+                    <th>Pass</th>
+                    <th>IP</th>
+                    <th>Sistema Operativo</th>
+                    </tr>
+                </thead>
+    {this.state.datos.map(dato =>
+                <tbody>
+                    <tr>
+                    <td>{dato.ip}</td>
+                    <td>{dato.pass}</td>
+                    <td>{dato.so}</td>
+                    </tr>
+                </tbody>
+    )}
+    </table>
+    </div>
+    </center>
       </div>
-      
+
+    <hr/>
+    <Formm/>
+    </center>
+  </div>  
   );
+  }
 }
 
 export default App;

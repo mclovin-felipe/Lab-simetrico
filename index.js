@@ -5,11 +5,12 @@ const { response } = require('express');
 const knex = require('knex')({
     client: 'pg',
     connection: {
-	    user:'fllmtgkemwbgdp',
-	    host:'ec2-50-17-255-120.compute-1.amazonaws.com',
-	    database:'d7lnp964sb3j1r',
-	    password:'4331177af89fd709b9c6a858a43f8264d3d5a768ccbab013958b2eea4ffd4e64',
-	    port:5432,
+//	    user:'fllmtgkemwbgdp',
+//	    host:'ec2-50-17-255-120.compute-1.amazonaws.com',
+//	    database:'d7lnp964sb3j1r',
+//	    password:'4331177af89fd709b9c6a858a43f8264d3d5a768ccbab013958b2eea4ffd4e64',
+//	    port:5432,
+        connectionString: process.env.DATABASE_URL,
         ssl: {
           rejectUnauthorized: false
         }
