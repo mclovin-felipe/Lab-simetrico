@@ -59,8 +59,10 @@ class App extends React.Component {
     </center>
       </div>
 
+    <div className = "container">
     <hr/>
     <Formm/>
+    </div>
     </center>
   </div>  
   );
