@@ -24,7 +24,7 @@ const Formm = (props) => {
   
         console.log(res.data)
         if(res.data === "listo"){
-        //window.location.reload(false);
+        window.location.reload(false);
         }
       })
 

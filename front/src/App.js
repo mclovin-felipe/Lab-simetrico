@@ -7,6 +7,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import Borrar from './components/borrar';
 import foto from './img/delete.png'
+import BorrarU from './components/borraru'
 class App extends React.Component {
   constructor(props){
   super(props);
@@ -66,7 +67,6 @@ class App extends React.Component {
     <table className = "u-full-width">
                 <thead>
                     <tr>
-                    <th>id</th>
                     <th>Pass</th>
                     <th>IP</th>
                     <th>Sistema Operativo</th>
@@ -74,13 +74,13 @@ class App extends React.Component {
                     </tr>
                 </thead>
     {this.state.datos.map(dato =>
-                <tbody>
+                <tbody key = {dato.id}>
                     <tr>
                     <td>{dato.id}</td>
                     <td>{dato.ip}</td>
                     <td>{dato.pass}</td>
                     <td>{dato.so}</td>
-                    <td><img src={foto} style={{width:"25px"}} onClick = {()=>console.log('borrar')} /></td>
+                    <td>{<BorrarU id={dato.id} />}</td>
                     </tr>
                 </tbody>
     )}

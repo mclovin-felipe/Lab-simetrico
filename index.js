@@ -59,6 +59,15 @@ knex('cripto').truncate().then(data=>{
 }).catch(err => console.log(err))
 })
 
+//Borrar 1 elemento
+app.post('/borrar', (req, res)=>{
+  const {id} = req.body;
+knex('cripto').where('id','=',id).del().then(
+       res.json('hecho')
+       
+    ).catch(err => console.log(err))
+})
+
 
 
 app.listen(process.env.PORT || 3001, () => {
