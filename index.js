@@ -2,8 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const { response } = require('express');
-const knex = require('knex')({
 const generateUniqueId = require('generate-unique-id');
+const knex = require('knex')({
     client: 'pg',
     connection: {
 //	    user:'fllmtgkemwbgdp',
