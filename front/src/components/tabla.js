@@ -8,6 +8,7 @@ const Formm = (props) => {
     const [pass, setPass] = useState('');
     const [ip, setIp] = useState('');
     const [so, setSo] = useState('');
+    
     function handleSubmit (e) {
       e.preventDefault();
       if(pass === "" || ip==="" || so===""){
@@ -23,7 +24,7 @@ const Formm = (props) => {
   
         console.log(res.data)
         if(res.data === "listo"){
-        window.location.reload(false);
+        //window.location.reload(false);
         }
       })
 

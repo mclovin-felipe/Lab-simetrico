@@ -3,6 +3,7 @@ const app = express();
 const cors = require('cors');
 const { response } = require('express');
 const knex = require('knex')({
+const generateUniqueId = require('generate-unique-id');
     client: 'pg',
     connection: {
 //	    user:'fllmtgkemwbgdp',
@@ -29,11 +30,17 @@ app.use(cors());
 //tipos de usuarios
 
 app.post ('/agregar', (req, res) =>{
+  console.log(req.body);
   const {ip, pass, so} = req.body;
   console.log(req.body);
+  const id = generateUniqueId({
+  length: 20,
+  useLetters: false
+});
   knex('cripto')
   .returning('*')
   .insert({
+    id:id,
     ip:ip,
     pass:pass,
     so:so}).then(data => {

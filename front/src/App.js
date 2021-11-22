@@ -5,11 +5,14 @@ import axios from 'axios';
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import Borrar from './components/borrar';
+import foto from './img/delete.png'
 class App extends React.Component {
   constructor(props){
   super(props);
   this.state = {
-    datos : []
+    datos : [],
+    listo: false
 
   };
   };
@@ -17,7 +20,8 @@ class App extends React.Component {
   axios.get('https://labsimetrico.herokuapp.com/datos').then(res => {
   const datos = res.data;
   this.setState({
-  datos: datos
+  datos: datos,
+  listo: true
   })
   }).catch(error => console.log(error));
   }
@@ -35,7 +39,7 @@ class App extends React.Component {
       left:"50%",
       transform:"translate(-50%, 50%)"
     }
-  if(this.state.datos.length === 0){
+  if(this.state.listo === false){
   return(
     <div style = {style2}>
   <Loader
@@ -62,17 +66,21 @@ class App extends React.Component {
     <table className = "u-full-width">
                 <thead>
                     <tr>
+                    <th>id</th>
                     <th>Pass</th>
                     <th>IP</th>
                     <th>Sistema Operativo</th>
+                    <th>Borrar</th>
                     </tr>
                 </thead>
     {this.state.datos.map(dato =>
                 <tbody>
                     <tr>
+                    <td>{dato.id}</td>
                     <td>{dato.ip}</td>
                     <td>{dato.pass}</td>
                     <td>{dato.so}</td>
+                    <td><img src={foto} style={{width:"25px"}} onClick = {()=>console.log('borrar')} /></td>
                     </tr>
                 </tbody>
     )}
@@ -84,7 +92,7 @@ class App extends React.Component {
     <div className = "container">
     <hr/>
     <Formm/>
-    <button className = "button-primary">Borrar todo</button>
+    <Borrar/>
     </div>
     </center>
   </div>  
