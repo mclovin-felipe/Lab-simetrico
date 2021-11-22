@@ -45,10 +45,16 @@ app.get('/datos', (req, res) =>{
         console.log(data)
     })
 })
+//borrar todos los datos.
+app.post ('/borrartodos', (req, res)=>{
+knex('cripto').truncate().then(data=>{
+  res.json('listo');
+}).catch(err => console.log(err))
+})
 
 
 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3001, () => {
     console.log('Funcionando');
 });
 //hola esto es un comentario

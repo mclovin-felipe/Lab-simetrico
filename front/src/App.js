@@ -84,6 +84,7 @@ class App extends React.Component {
     <div className = "container">
     <hr/>
     <Formm/>
+    <button className = "button-primary">Borrar todo</button>
     </div>
     </center>
   </div>  

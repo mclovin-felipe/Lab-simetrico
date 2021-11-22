@@ -1,0 +1,7 @@
+const Borrar () => {
+
+return (
+
+  
+); 
+}
