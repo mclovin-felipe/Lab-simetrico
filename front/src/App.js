@@ -3,7 +3,8 @@ import './Normalize.css';
 import Formm from './components/tabla';
 import axios from 'axios';
 import React from 'react';
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 class App extends React.Component {
   constructor(props){
   super(props);
@@ -28,6 +29,27 @@ class App extends React.Component {
       borderRadius: "40px",
 
     };
+    const style2 = {
+      position: "fixed",
+      top:"40%",
+      left:"50%",
+      transform:"translate(-50%, 50%)"
+    }
+  if(this.state.datos.length === 0){
+  return(
+    <div style = {style2}>
+  <Loader
+        type="Circles"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
+    <h3>.......</h3>
+    </div>
+  )
+  }
+  else{
   return (
     <div className = "center">
     <center>
@@ -66,7 +88,7 @@ class App extends React.Component {
     </center>
   </div>  
   );
-  }
+  }}
 }
 
 export default App;
