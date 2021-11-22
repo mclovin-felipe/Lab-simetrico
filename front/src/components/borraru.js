@@ -7,7 +7,8 @@ const postBorrar = (id) =>{
 axios.post('https://labsimetrico.herokuapp.com/borrar',{
         id:id
         }).then(res =>{
-          res.json('listo');
+          console.log(res.data);
+          window.location.reload(false);
         })
 }
 const BorrarU = (props) => {

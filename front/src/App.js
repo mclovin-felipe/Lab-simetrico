@@ -6,7 +6,6 @@ import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import Borrar from './components/borrar';
-import foto from './img/delete.png'
 import BorrarU from './components/borraru'
 class App extends React.Component {
   constructor(props){
@@ -76,7 +75,6 @@ class App extends React.Component {
     {this.state.datos.map(dato =>
                 <tbody key = {dato.id}>
                     <tr>
-                    <td>{dato.id}</td>
                     <td>{dato.ip}</td>
                     <td>{dato.pass}</td>
                     <td>{dato.so}</td>
