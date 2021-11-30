@@ -31,6 +31,7 @@ app.use(cors());
 
 app.post ('/agregar', (req, res) =>{
   console.log(req.body);
+  console.log(req);
   const {ip, pass, so} = req.body;
   console.log(req.body);
   const id = generateUniqueId({
