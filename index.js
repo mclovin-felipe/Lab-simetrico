@@ -59,7 +59,7 @@ knex('cripto').truncate().then(data=>{
   res.json('listo');
 }).catch(err => console.log(err))
 })
-app.get ('/obtener:os', (req,res)=> {
+app.get ('/obtener', (req,res)=> {
   console.log(req)
   console.log(req.query);
   const id = generateUniqueId({
