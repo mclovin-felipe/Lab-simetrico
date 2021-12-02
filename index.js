@@ -60,10 +60,10 @@ knex('cripto').truncate().then(data=>{
 }).catch(err => console.log(err))
 })
 app.get ('/obtener', (req,res)=> {
+  console.log(req);
   const id = generateUniqueId({
     length: 20,
     useLetters: false
-    console.log(req)
   });
     knex('cripto')
     .returning('*')
