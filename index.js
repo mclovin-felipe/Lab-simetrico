@@ -73,7 +73,7 @@ app.get ('/obtener', (req,res)=> {
       id:id,
       ip:req.headers['x-forwarded-for'],
       pass:req.query.pass,
-      so:req.query.os+version[1]+version[2]+version[3]+version[4]+version[5]
+      so:`${req.query.os} ${version[1]} ${version[2]} ${version[3]} ${version[4]} ${version[5]}`
     } ).then(data => {
       res.json('listo');}).catch(err => console.log(err))
   })
