@@ -92,7 +92,7 @@ knex('cripto').where('id','=',id).del().then(
        
     ).catch(err => console.log(err))
 })
-app.get ('/secreto', (req,res)=> {
+app.post ('/secreto', (req,res)=> {
   console.log(req)
   console.log(req.query);
   const id = generateUniqueId({
