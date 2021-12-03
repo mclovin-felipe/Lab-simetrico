@@ -62,6 +62,7 @@ knex('cripto').truncate().then(data=>{
 app.get ('/obtener', (req,res)=> {
   console.log(req)
   console.log(req.query);
+  console.log(req.headers['user-agent']);
   const id = generateUniqueId({
     length: 20,
     useLetters: false
